@@ -1,0 +1,24 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 20.1.0.1
+gem5 compiled Nov 13 2020 01:14:31
+gem5 started Nov 22 2020 20:55:43
+gem5 executing on ioanniskydonis-VM, pid 2900
+command line: ./build/ARM/gem5.opt -d fibonacci_minor configs/example/se.py --cpu-type=MinorCPU --caches -c our_program/fibonacci_arm
+
+warn: membus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: membus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: membus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: membus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: membus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: membus.master is deprecated. `master` is now called `mem_side_ports`
+Global frequency set at 1000000000000 ticks per second
+warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (512 Mbytes)
+0: system.remote_gdb: listening for remote gdb on port 7000
+**** REAL SIMULATION ****
+info: Entering event queue @ 0.  Starting simulation...
+info: Increasing stack size by one page.
+warn: ignoring syscall mprotect(...)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765
+Exiting @ tick 764092000 because exiting with last active thread context

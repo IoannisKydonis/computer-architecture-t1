@@ -1,0 +1,28 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 20.1.0.1
+gem5 compiled Nov 13 2020 01:14:31
+gem5 started Nov 22 2020 21:47:17
+gem5 executing on ioanniskydonis-VM, pid 3068
+command line: ./build/ARM/gem5.opt -d hello_result configs/example/arm/starter_se.py --cpu=minor tests/test-progs/hello/bin/arm/linux/hello
+
+warn: membus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: toL2Bus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: toL2Bus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: toL2Bus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: toL2Bus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: toL2Bus.master is deprecated. `master` is now called `mem_side_ports`
+warn: membus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: membus.slave is deprecated. `slave` is now called `cpu_side_ports`
+warn: membus.master is deprecated. `master` is now called `mem_side_ports`
+warn: membus.master is deprecated. `master` is now called `mem_side_ports`
+info: 1. command and arguments: ['tests/test-progs/hello/bin/arm/linux/hello']
+Global frequency set at 1000000000000 ticks per second
+warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (1024 Mbytes)
+warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (1024 Mbytes)
+0: system.remote_gdb: listening for remote gdb on port 7000
+info: Entering event queue @ 0.  Starting simulation...
+warn: CP14 unimplemented crn[14], opc1[7], crm[15], opc2[7]
+Hello world!
+exiting with last active thread context  @  24321000
