@@ -88,7 +88,7 @@ system.cpu_cluster.cpus.dcache.overall_mshr_hits::total           32            
 system.cpu_cluster.cpus.dcache.overall_mshr_misses::total          147                       # number of overall MSHR misses
 ```
 
-## Ερώτημα 3
+## Ερώτημα 3: Εξομοίωση με δικό μας πρόγραμμα C και μελέτη in-order μοντέλων CPU
 Στο documentation της ιστοσελίδας του gem5 μπορούμε μεταξύ άλλων να βρούμε πληροφορίες για τα υποστηριζόμενα μοντέλα CPU:
 - [SimpleCPU](http://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)
 - [O3CPU](http://www.gem5.org/documentation/general_docs/cpu_models/O3CPU)
