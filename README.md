@@ -78,7 +78,7 @@ system.cpu_cluster.l2.overall_accesses::total          479                      
 ```
 
 Εναλλακτικά αν δεν δινόταν πληροφορία για τα συνολικά accesses στην L2 cache θα μπορούσαμε να τα υπολογίσουμε από τον αριθμό των misses στην L1 cache (instruction + data) εξαιρώντας τα MSHR hits στην L1 cache.
-Τα MSHR hits δηλώνουν ότι η L1 cache επικοινώνησε κατευθείαν με την DRAM χωρίς να μεσολαβήσει η L2 οπότε πρέπει να αφαιρεθούν από τα συνολικά misses της L1 στον υπολογισμό[[1]](#πηγές).  
+Τα MSHR hits δηλώνουν ότι η L1 cache επικοινώνησε κατευθείαν με την DRAM χωρίς να μεσολαβήσει η L2 οπότε πρέπει να αφαιρεθούν από τα συνολικά misses της L1 στον υπολογισμό<sup>[[1]](#πηγές)</sup>.  
 Οπότε υπολογίζουμε l2_overall_acceses = icache_overall_misses + dcache_overall_misses - dcache_overall_mshr_hits = 332 + 179 - 32 = 479.  
 (ή εναλλακτικά l2_overall_acceses = icache_overall_misses + dcache_overall_mshr_misses)
 ```
@@ -89,7 +89,7 @@ system.cpu_cluster.cpus.dcache.overall_mshr_misses::total          147          
 ```
 
 ## Ερώτημα 3: Εξομοίωση με δικό μας πρόγραμμα C και μελέτη in-order μοντέλων CPU
-Στο documentation της ιστοσελίδας του gem5[[2]](#πηγές) μπορούμε μεταξύ άλλων να βρούμε πληροφορίες για τα υποστηριζόμενα μοντέλα CPU:
+Στο documentation της ιστοσελίδας του gem5<sup>[[2]](#πηγές)</sup> μπορούμε μεταξύ άλλων να βρούμε πληροφορίες για τα υποστηριζόμενα μοντέλα CPU:
 - [SimpleCPU](http://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)
 - [O3CPU](http://www.gem5.org/documentation/general_docs/cpu_models/O3CPU)
 - [TraceCPU](http://www.gem5.org/documentation/general_docs/cpu_models/TraceCPU)
