@@ -78,7 +78,7 @@ system.cpu_cluster.l2.overall_accesses::total          479                      
 ```
 
 Εναλλακτικά αν δεν δινόταν πληροφορία για τα συνολικά accesses στην L2 cache θα μπορούσαμε να τα υπολογίσουμε από τον αριθμό των misses στην L1 cache (instruction + data) εξαιρώντας τα MSHR hits στην L1 cache.
-Τα MSHR hits δηλώνουν ότι η L1 cache επικοινώνησε κατευθείαν με την DRAM χωρίς να μεσολαβήσει η L2 οπότε πρέπει να αφαιρεθούν από τα συνολικά misses της L1 στον υπολογισμό (πηγή αποτέλεσε το paper [Stop Crying Over Your Cache Miss Rate: Handling Efficiently Thousands of Outstanding Misses in FPGAs](https://www.epfl.ch/labs/lap/wp-content/uploads/2019/06/AsiaticiFeb19_StopCryingOverYourCacheMissRateHandlingEfficientlyThousandsOfOutstandingMissesInFpgas_FPGA19.pdf) p.312).  
+Τα MSHR hits δηλώνουν ότι η L1 cache επικοινώνησε κατευθείαν με την DRAM χωρίς να μεσολαβήσει η L2 οπότε πρέπει να αφαιρεθούν από τα συνολικά misses της L1 στον υπολογισμό[[1]](#πηγές).  
 Οπότε υπολογίζουμε l2_overall_acceses = icache_overall_misses + dcache_overall_misses - dcache_overall_mshr_hits = 332 + 179 - 32 = 479.  
 (ή εναλλακτικά l2_overall_acceses = icache_overall_misses + dcache_overall_mshr_misses)
 ```
@@ -89,7 +89,7 @@ system.cpu_cluster.cpus.dcache.overall_mshr_misses::total          147          
 ```
 
 ## Ερώτημα 3: Εξομοίωση με δικό μας πρόγραμμα C και μελέτη in-order μοντέλων CPU
-Στο documentation της ιστοσελίδας του gem5 μπορούμε μεταξύ άλλων να βρούμε πληροφορίες για τα υποστηριζόμενα μοντέλα CPU:
+Στο documentation της ιστοσελίδας του gem5[[2]](#πηγές) μπορούμε μεταξύ άλλων να βρούμε πληροφορίες για τα υποστηριζόμενα μοντέλα CPU:
 - [SimpleCPU](http://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)
 - [O3CPU](http://www.gem5.org/documentation/general_docs/cpu_models/O3CPU)
 - [TraceCPU](http://www.gem5.org/documentation/general_docs/cpu_models/TraceCPU)
@@ -188,6 +188,10 @@ system.cpu.committedOps                       1369742                       # Nu
 | TimingSimpleCPU | DDR4_2400_8x8 | 1.555 |
 
 Με αλλαγή της τεχνολογίας μνήμης δεν παρατηρείται σημαντική διαφορά στους χρόνους εκτέλεσης. Αυτό μπορεί να εξηγηθεί από τις σχετικά μικρές απαιτήσεις μνήμης του προγράμματος.
+
+## Πηγές
+[1] [Mikhail Asiatici and Paolo Ienne, Stop Crying Over Your Cache Miss Rate: Handling Efficiently Thousands of Outstanding Misses in FPGAs, FPGA ’19](https://www.epfl.ch/labs/lap/wp-content/uploads/2019/06/AsiaticiFeb19_StopCryingOverYourCacheMissRateHandlingEfficientlyThousandsOfOutstandingMissesInFpgas_FPGA19.pdf) p.312  
+[2] [gem5 documentation website](http://www.gem5.org/documentation/)
 
 ## Κριτική της εργασίας
 Με αφορμή την εργασία αυτή πετύχαμε:
