@@ -1,4 +1,4 @@
-pi@raspberrypi ~ $ sudo apt-get install linux-tools
+pi@raspberrypi: ~ $ sudo apt-get install linux-tools
 
 Reading package lists... 0%
 
@@ -55,59 +55,62 @@ Selecting previously unselected package linux-tools.
 Preparing to unpack .../linux-tools_4.9+80+deb9u4+rpi2_all.deb ...
 Unpacking linux-tools (4.9+80+deb9u4+rpi2) ...
 Setting up linux-tools (4.9+80+deb9u4+rpi2) ...
-pi@raspberrypi ~ $ sudo perf_4.9 stat -e instructions:u ./hello
+pi@raspberrypi: ~ $ sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
 Hello world!
 
  Performance counter stats for './hello':
 
-             5,906      instructions:u                                              
+             5,896      instructions:u
+               370      branch-misses:u
 
-       0.002052956 seconds time elapsed
+       0.009618370 seconds time elapsed
 
-pi@raspberrypi ~ $ sudo perf_4.9 stat -e instructions:u ./hello
+pi@raspberrypi: ~ $ sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
 Hello world!
 
  Performance counter stats for './hello':
 
-             5,906      instructions:u                                              
+             5,896      instructions:u
+               377      branch-misses:u
 
-       0.001954518 seconds time elapsed
+       0.002025663 seconds time elapsed
 
-pi@raspberrypi ~ $ sudo perf_4.9 stat -e instructions:u ./hello
+pi@raspberrypi: ~ $ sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
 Hello world!
 
  Performance counter stats for './hello':
 
-             5,908      instructions:u                                              
+             5,890      instructions:u
+               374      branch-misses:u
 
-       0.010122642 seconds time elapsed
+       0.009694671 seconds time elapsed
 
-pi@raspberrypi ~ $ sudo perf_4.9 stat -e instructions:u ./hello
+pi@raspberrypi: ~ $ sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
 Hello world!
 
  Performance counter stats for './hello':
 
-             5,908      instructions:u                                              
+             5,897      instructions:u
+               377      branch-misses:u
 
-       0.002739253 seconds time elapsed
+       0.002837636 seconds time elapsed
 
-pi@raspberrypi ~ $ sudo perf_4.9 stat -e instructions:u ./hello
+pi@raspberrypi: ~ $ sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
 Hello world!
 
  Performance counter stats for './hello':
 
-             5,908      instructions:u                                              
+             5,902      instructions:u
+               390      branch-misses:u
 
-       0.009053951 seconds time elapsed
+       0.002844355 seconds time elapsed
 
-pi@raspberrypi ~ $ sudo perf_4.9 stat -e instructions:u ./hello
+pi@raspberrypi: ~ $ sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
 Hello world!
 
  Performance counter stats for './hello':
 
-             5,906      instructions:u                                              
+             5,904      instructions:u
+               394      branch-misses:u
 
-       0.002871908 seconds time elapsed
-
-pi@raspberrypi ~ $ exit
-exit
+       0.002047017 seconds time elapsed

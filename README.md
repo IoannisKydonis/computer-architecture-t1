@@ -69,6 +69,39 @@ system.cpu_cluster.cpus.fetch2.amoInstructions            0                     
 ```
 
 Παρατηρούμε ότι τα committed instructions της CPU δεν συμβαδίζουν με τα συνολικά instructions που έγιναν fetch στο στάδιο fetch2 του pipeline. Οπότε συμπεραίνουμε ότι μερικά instructions έγιναν discard αντί για commit μέσα στο pipeline λόγω εσφαλμένου branch prediction.
+Πραγματοποιήθηκε επίσης έλεγχος των committed instructions μέσω του command line profiler εργαλείου perf. Η δοκιμή έγινε σε ένα Raspberry PI 3 model B και εκτελέστηκαν οι παρακάτω εντολές (για εγκατάσταση του απαιτούμενου εργαλείου και για τον υπολογισμό των instructions):
+```
+sudo apt-get install linux-tools
+sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
+```
+
+Χρησιμοποιήθηκε τα ορίσματα -e instructions:u -e branch-misses:u έτσι ώστε να επιστραφεί ο αριθμός των instructions και των branch misses που συνέβησαν σε επίπεδο χρήστη και όχι σε επίπεδο kernel<sup>[[3]](#πηγές)</sup>.
+Με διαδοχικές εκτελέσεις τα αποτελέσματα που επέστρεψε ο profiler ήταν τα παρακάτω:
+```
+ Performance counter stats for './hello':
+              5,896      instructions:u
+                370      branch-misses:u
+
+ Performance counter stats for './hello':
+              5,896      instructions:u
+                377      branch-misses:u
+
+ Performance counter stats for './hello':
+              5,890      instructions:u
+                374      branch-misses:u
+ 
+ Performance counter stats for './hello':
+              5,897      instructions:u
+                377      branch-misses:u
+ 
+ Performance counter stats for './hello':
+              5,902      instructions:u
+                390      branch-misses:u
+ 
+ Performance counter stats for './hello':
+              5,904      instructions:u                                              
+                394      branch-misses:u
+```
 
 ### Μέρος C
 Από το αρχείο stats.txt φαίνεται ότι η L2 cache προσπελάστηκε 479 φορές:
@@ -191,7 +224,8 @@ system.cpu.committedOps                       1369742                       # Nu
 
 ## Πηγές
 [1] [Mikhail Asiatici and Paolo Ienne, Stop Crying Over Your Cache Miss Rate: Handling Efficiently Thousands of Outstanding Misses in FPGAs, FPGA ’19](https://www.epfl.ch/labs/lap/wp-content/uploads/2019/06/AsiaticiFeb19_StopCryingOverYourCacheMissRateHandlingEfficientlyThousandsOfOutstandingMissesInFpgas_FPGA19.pdf) p.312  
-[2] [gem5 documentation website](http://www.gem5.org/documentation/)
+[2] [gem5 documentation website](http://www.gem5.org/documentation/)  
+[3] [perf profiler tutorial](https://perf.wiki.kernel.org/index.php/Tutorial)
 
 ## Κριτική της εργασίας
 Με αφορμή την εργασία αυτή πετύχαμε:
