@@ -104,7 +104,7 @@ sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
                 394      branch-misses:u
 ```
 
-Παρατηρούμε ότι και τα αποτελέσματα του _perf_ δείχνουν αυξημένο αριθμό instructions σε σχέση με τα αποτελέσματα του gem5 και αυτό επιβεβαιώνει το ότι δεν γίνονται commit όλα τα instructions διότι προκύπτουν και branch prediction misses.
+Παρατηρούμε ότι και τα αποτελέσματα του _perf_ δείχνουν αυξημένο αριθμό instructions σε σχέση με τα αποτελέσματα του _gem5_ και αυτό επιβεβαιώνει το ότι δεν γίνονται commit όλα τα instructions διότι προκύπτουν και branch prediction misses.
 
 ### Μέρος C
 Από το αρχείο stats.txt φαίνεται ότι η L2 cache προσπελάστηκε 479 φορές:
