@@ -69,13 +69,13 @@ system.cpu_cluster.cpus.fetch2.amoInstructions            0                     
 ```
 
 Παρατηρούμε ότι τα committed instructions της CPU δεν συμβαδίζουν με τα συνολικά instructions που έγιναν fetch στο στάδιο fetch2 του pipeline. Οπότε συμπεραίνουμε ότι μερικά instructions έγιναν discard αντί για commit μέσα στο pipeline λόγω εσφαλμένου branch prediction.
-Πραγματοποιήθηκε επίσης έλεγχος των committed instructions μέσω του command line profiler εργαλείου perf. Η δοκιμή έγινε σε ένα Raspberry PI 3 model B και εκτελέστηκαν οι παρακάτω εντολές (για εγκατάσταση του απαιτούμενου εργαλείου και για τον υπολογισμό των instructions):
+Πραγματοποιήθηκε επίσης έλεγχος των committed instructions μέσω του command line profiler εργαλείου _perf_. Η δοκιμή έγινε σε ένα _Raspberry Pi 3 Model B_ (το οποίο έχει ARM αρχιτεκτονική) και εκτελέστηκαν οι παρακάτω εντολές (για εγκατάσταση του απαιτούμενου εργαλείου και για τον υπολογισμό των instructions και branch misses):
 ```
 sudo apt-get install linux-tools
 sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
 ```
 
-Χρησιμοποιήθηκε τα ορίσματα -e instructions:u -e branch-misses:u έτσι ώστε να επιστραφεί ο αριθμός των instructions και των branch misses που συνέβησαν σε επίπεδο χρήστη και όχι σε επίπεδο kernel<sup>[[1]](#πηγές)</sup>.
+Χρησιμοποιήθηκε τα ορίσματα _-e instructions:u -e branch-misses:u_ έτσι ώστε να επιστραφεί ο αριθμός των instructions και των branch misses που συνέβησαν σε επίπεδο χρήστη και όχι σε επίπεδο kernel<sup>[[1]](#πηγές)</sup>.
 Με διαδοχικές εκτελέσεις τα αποτελέσματα που επέστρεψε ο profiler ήταν τα παρακάτω:
 ```
  Performance counter stats for './hello':
