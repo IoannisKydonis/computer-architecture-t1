@@ -76,7 +76,7 @@ sudo apt-get install linux-tools
 sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
 ```
 
-Χρησιμοποιήθηκε τα ορίσματα _-e instructions:u -e branch-misses:u_ έτσι ώστε να επιστραφεί ο αριθμός των instructions και των branch misses που συνέβησαν σε επίπεδο χρήστη και όχι σε επίπεδο kernel<sup>[[1]](#πηγές)</sup>.
+Χρησιμοποιήθηκαν τα ορίσματα _-e instructions:u -e branch-misses:u_ έτσι ώστε να επιστραφεί ο αριθμός των instructions και των branch misses που συνέβησαν σε επίπεδο χρήστη και όχι σε επίπεδο kernel<sup>[[1]](#πηγές)</sup>.
 Με διαδοχικές εκτελέσεις τα αποτελέσματα που επέστρεψε ο profiler ήταν τα παρακάτω:
 ```
  Performance counter stats for './hello':
@@ -103,6 +103,8 @@ sudo perf_4.9 stat -e instructions:u -e branch-misses:u ./hello
               5,904      instructions:u                                              
                 394      branch-misses:u
 ```
+
+Παρατηρούμε ότι και τα αποτελέσματα του profiler δείχνουν αυξημένο αριθμό instructions σε σχέση με τα αποτελέσματα του gem5 και αυτό επιβεβαιώνει το ότι δεν γίνονται commit όλα τα instructions διότι προκύπτουν και branch prediction misses.
 
 ### Μέρος C
 Από το αρχείο stats.txt φαίνεται ότι η L2 cache προσπελάστηκε 479 φορές:
